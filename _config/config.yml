@@ -1,0 +1,9 @@
+---
+Name: text-target-length
+---
+TextField:
+  extensions:
+    - TextTargetLengthExtension
+TextareaField:
+  extensions:
+    - TextTargetLengthExtension
