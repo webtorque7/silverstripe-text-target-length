@@ -1,7 +1,7 @@
 (function($) {
 	$.entwine('ss.targetlength', function($){
 
-		$('div.field.target-length input').entwine({
+		$('input.target-length, textarea.target-length').entwine({
 
 			updateCount: function() {
 				var field = $(this);
