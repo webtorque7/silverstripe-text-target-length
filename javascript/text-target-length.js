@@ -5,9 +5,9 @@
 
 			updateCount: function() {
 				var field = $(this);
-                var countEl = field.next('p.target-length-count');
+                var countEl = field.siblings('p.target-length-count').first();
 				if (!countEl) return;
-				var charCount = field.val().length;
+				var charCount = this.getText().length;
 				if (field.data('previousCount') === charCount) return;
 				var ideal = field.data('targetIdealLength');
 				var min = field.data('targetMinLength');
@@ -28,6 +28,18 @@
 				countEl.attr('class', remarkClass + ' target-length-count');
 				countEl.html('Length target: <b>' + targetFulfilled + '%</b> <i>' + remark + '</i>');
 				field.data('previousCount', charCount);
+			},
+			getText: function() {
+				var field = $(this);
+				if (field.hasClass('htmleditor')) {
+					var editor = tinyMCE.getInstanceById(field.attr('ID'));
+					if (editor !== undefined) {
+						return $(editor.getContent()).text();
+					} else {
+						return $('<div />').html(field.val()).text();
+					}
+				}
+				return field.val();
 			},
 			onadd: function() {
 				// Insert extra markup

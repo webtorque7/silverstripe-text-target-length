@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Apply this extension to TextareaField and/or TextField
+ * Apply this extension to text editing form field such as TextareaField
  * to allow setting of ideal, min and max lengths. These are
  * soft limits only, to give CMS users an idea of target length.
  */
@@ -10,7 +10,6 @@ class TextTargetLengthExtension extends Extension
 
 	/**
 	 * Set a target character length for text in a field.
-	 *
 	 *
 	 * @param Int $idealCharCount the ideal number of characters for this text
 	 * @param Int $minCharCount (default: null) the minimum number of characters for this text
